@@ -1,12 +1,21 @@
-import React, { Component } from 'react';
-import { Image, Text } from '@sitecore-jss/sitecore-jss-react';
+import React, { Component } from "react";
+import { Image, Text } from "@sitecore-jss/sitecore-jss-react";
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
   CarouselCaption
-} from 'reactstrap';
+} from "reactstrap";
+
+const SlideShowForRealHumans = ({ key, item }) => (
+  <div className="row">
+    <div className="col">
+      <Text field={item.fields.caption} />
+      <Image field={item.fields.image} width={700} />
+    </div>
+  </div>
+);
 
 class SlideShow extends Component {
   constructor(props) {
@@ -29,13 +38,19 @@ class SlideShow extends Component {
 
   next() {
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === this.items().length - 1 ? 0 : this.state.activeIndex + 1;
+    const nextIndex =
+      this.state.activeIndex === this.items().length - 1
+        ? 0
+        : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
   }
 
   previous() {
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === 0 ? this.items().length - 1 : this.state.activeIndex - 1;
+    const nextIndex =
+      this.state.activeIndex === 0
+        ? this.items().length - 1
+        : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   }
 
@@ -44,7 +59,7 @@ class SlideShow extends Component {
     this.setState({ activeIndex: newIndex });
   }
 
-  items(){
+  items() {
     return this.props.fields.slides;
   }
 
@@ -54,22 +69,13 @@ class SlideShow extends Component {
     const items = this.items();
     const isPageEditing = this.props.context.pageEditing;
 
-    if(isPageEditing){
-      const slides = items.map((item, index) => {
-        return (<div className="row">
-            <div className="col">
-              <Text field={item.fields.caption} />
-              <Image field={item.fields.image} width={700} />
-            </div>
-          </div>
-          )
-      });
-
-      return slides;
+    if (isPageEditing) {
+      return items.map((item, index) => 
+              <SlideShowForRealHumans key={index} item={item} />);
     }
 
     const slides = items.map((item, index) => {
-      const {image, caption} = item.fields;
+      const { image, caption } = item.fields;
       return (
         <CarouselItem
           onExiting={this.onExiting}
@@ -77,7 +83,10 @@ class SlideShow extends Component {
           key={index}
         >
           <Image field={image} width={700} />
-          <CarouselCaption captionText={caption.value} captionHeader={caption.value} />
+          <CarouselCaption
+            captionText={caption.value}
+            captionHeader={caption.value}
+          />
         </CarouselItem>
       );
     });
@@ -89,8 +98,16 @@ class SlideShow extends Component {
         previous={this.previous}
       >
         {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+        <CarouselControl
+          direction="prev"
+          directionText="Previous"
+          onClickHandler={this.previous}
+        />
+        <CarouselControl
+          direction="next"
+          directionText="Next"
+          onClickHandler={this.next}
+        />
       </Carousel>
     );
   }
