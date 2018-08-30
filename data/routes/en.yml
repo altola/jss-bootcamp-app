@@ -4,3 +4,9 @@ fields:
 placeholders:
   jss-main:
   - componentName: Jumbo
+    fields:
+      title: Hello JSS
+      text: Some text
+      callToAction:
+        href: http://jss.sitecore.net
+        text: RTFM

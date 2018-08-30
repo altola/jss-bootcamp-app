@@ -1,21 +1,23 @@
 import React from "react";
-import { Text } from "@sitecore-jss/sitecore-jss-react";
+import { RichText, Text, Link } from "@sitecore-jss/sitecore-jss-react";
 import { Jumbotron, Button } from "reactstrap";
 
-const Jumbo = props => (
+// const Jumbo = props => (
+//   <Jumbotron>
+//     <Text tag="h1" className="display-3" field={props.fields.title} />
+//     <RichText field={props.fields.text} />
+//     <p className="lead">
+//       <Link className="btn btn-primary" field={props.fields.callToAction} />
+//     </p>
+//   </Jumbotron>
+// );
+
+const Jumbo = ({fields}) => (
   <Jumbotron>
-    <h1 className="display-3">{props.fields.title ? props.fields.title.value : 'default'}</h1>
+    <Text tag="h1" className="display-3" field={fields.title} />
+    <RichText field={fields.text} />
     <p className="lead">
-      This is a simple hero unit, a simple Jumbotron-style component for calling
-      extra attention to featured content or information.
-    </p>
-    <hr className="my-2" />
-    <p>
-      It uses utility classes for typography and spacing to space content out
-      within the larger container.
-    </p>
-    <p className="lead">
-      <Button color="primary">Learn More</Button>
+      <Link className="btn btn-primary" field={fields.callToAction} />
     </p>
   </Jumbotron>
 );
