@@ -15,6 +15,7 @@ export default function(manifest) {
       { name: 'text', type: CommonFieldTypes.RichText },
       { name: 'callToAction', type: CommonFieldTypes.GeneralLink }, 
     ],
+    params: ["containerClass", "linkClass"]
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
     register it here, or components added to that placeholder will not be returned by Sitecore:

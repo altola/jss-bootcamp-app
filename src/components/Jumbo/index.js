@@ -12,12 +12,12 @@ import { Jumbotron, Button } from "reactstrap";
 //   </Jumbotron>
 // );
 
-const Jumbo = ({fields}) => (
+const Jumbo = ({fields, params}) => (
   <Jumbotron>
     <Text tag="h1" className="display-3" field={fields.title} />
     <RichText field={fields.text} />
-    <p className="lead">
-      <Link className="btn btn-primary" field={fields.callToAction} />
+    <p className={params.containerClass}>
+      <Link className={params.linkClass} field={fields.callToAction} />
     </p>
   </Jumbotron>
 );
