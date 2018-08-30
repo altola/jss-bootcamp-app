@@ -11,6 +11,7 @@ export default function(manifest) {
     name: 'SlideShow',
     icon: SitecoreIcon.DocumentTag,
     fields: [
+      { name: 'slides', displayName: 'Slides', type: CommonFieldTypes.ContentList}
     ],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
