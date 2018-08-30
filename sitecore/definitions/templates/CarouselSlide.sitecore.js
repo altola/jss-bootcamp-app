@@ -5,6 +5,7 @@ export default function(manifest) {
   manifest.addTemplate({
     name: 'carousel-slide',
     displayName: 'Carousel Slides',
+    icon: SitecoreIcon.PhotoPortrait,
     fields: [
         { name: 'src', type: CommonFieldTypes.SingleLineText },
         { name: 'altText', type: CommonFieldTypes.SingleLineText },
