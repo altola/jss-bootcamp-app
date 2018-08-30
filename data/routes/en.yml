@@ -5,6 +5,7 @@ placeholders:
   jss-main:
   - componentName: Jumbo
     params:
+      titleClass: display-3
       containerClass: lead
       linkClass: btn btn-primary
     fields:
