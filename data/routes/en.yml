@@ -14,3 +14,4 @@ placeholders:
       callToAction:
         href: http://jss.sitecore.net
         text: RTFM
+  - componentName: SlideShow
