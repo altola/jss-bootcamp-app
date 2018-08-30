@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 import {
   Collapse,
   Navbar,
@@ -6,7 +8,6 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -27,14 +28,24 @@ class Navigation extends React.Component {
     });
   }
   render() {
+    const navItems = this.props.navItems.map((nav, index) => 
+        <NavItem key={index}>
+            <NavLink to={nav.path}>{nav.name}</NavLink>
+            {/* <NavLink href={nav.path}>{nav.name}</NavLink> */}
+
+        </NavItem>
+    )
+
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Sitecore Rocks</NavbarBrand>
+          <NavbarBrand>
+            <NavLink to='/'>Launch Sitecore JSS</NavLink>
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              
+              {navItems}
             </Nav>
           </Collapse>
         </Navbar>

@@ -20,6 +20,8 @@ import logo from './assets/jss-logo.png';
 */
 
 const Layout = ({ route, context }) => {
+  const navItems = context.navigation ? context.navigation[0].children :
+          [];
   return (
   <React.Fragment>
     {/* react-helmet enables setting <head> contents, like title and OG meta tags */}
@@ -29,7 +31,7 @@ const Layout = ({ route, context }) => {
       </title>
     </Helmet>
 
-    <Navigation />
+    <Navigation navItems={navItems} />
     
     {/* root placeholder for the app, which we add components to using route data */}
     <div className="container">
