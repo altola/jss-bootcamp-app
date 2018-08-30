@@ -1,0 +1,6 @@
+template: team
+fields:
+    members: Patrick, Casey
+placeholders:
+  jss-main:
+  - id: asd

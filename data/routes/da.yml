@@ -1,0 +1,8 @@
+fields:
+  pageTitle: danish title
+placeholders:
+  jss-main:
+  - componentName: ContentBlock
+    fields:
+      heading: danish heading
+      content: danish content
