@@ -7,8 +7,7 @@ export default function(manifest) {
     displayName: 'Carousel Slides',
     icon: SitecoreIcon.PhotoPortrait,
     fields: [
-        { name: 'src', type: CommonFieldTypes.SingleLineText },
-        { name: 'altText', type: CommonFieldTypes.SingleLineText },
+        { name: 'image', type: CommonFieldTypes.Image },
         { name: 'caption', type: CommonFieldTypes.SingleLineText }
     ],
   });

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Image } from '@sitecore-jss/sitecore-jss-react';
 import {
   Carousel,
   CarouselItem,
@@ -53,14 +54,14 @@ class SlideShow extends Component {
     const items = this.items();
 
     const slides = items.map((item, index) => {
-      const {src, altText, caption} = item.fields;
+      const {image, caption} = item.fields;
       return (
         <CarouselItem
           onExiting={this.onExiting}
           onExited={this.onExited}
           key={index}
         >
-          <img src={src.value} alt={altText.value} />
+          <Image field={image} width={700} />
           <CarouselCaption captionText={caption.value} captionHeader={caption.value} />
         </CarouselItem>
       );
