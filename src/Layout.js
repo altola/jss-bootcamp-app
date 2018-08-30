@@ -43,7 +43,8 @@ let Navigation = ({ t, i18n }) => (
 // the component state updated when i18n state (e.g. current language) changes
 Navigation = translate()(Navigation);
 
-const Layout = ({ route }) => (
+const Layout = ({ route, context }) => {
+  return (
   <React.Fragment>
     {/* react-helmet enables setting <head> contents, like title and OG meta tags */}
     <Helmet>
@@ -53,12 +54,13 @@ const Layout = ({ route }) => (
     </Helmet>
 
     <Navigation />
-
+    
     {/* root placeholder for the app, which we add components to using route data */}
     <div className="container">
-      <Placeholder name="jss-main" rendering={route} />
+      <Placeholder name="jss-main" rendering={route} context={context}  />
     </div>
   </React.Fragment>
 );
+  }
 
 export default Layout;

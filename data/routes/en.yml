@@ -24,7 +24,7 @@ placeholders:
               image:
                 src: /assets/slides/slide1.jpg
                 alt: Slide 1
-                width: 600px
+                width: 600
               caption: Slide 1
           - name: Second slide
             displayName: 2nd slide
@@ -33,7 +33,7 @@ placeholders:
               image:
                 src: /assets/slides/slide2.jpg
                 alt: Slide 2
-                width: 600px
+                width: 600
               caption: Slide 2
           - name: Third slide
             displayName: 3rd slide
@@ -42,5 +42,5 @@ placeholders:
               image:
                 src: /assets/slides/slide3.jpg
                 alt: Slide 3
-                width: 600px
+                width: 600
               caption: Slide 3

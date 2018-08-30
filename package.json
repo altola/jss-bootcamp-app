@@ -8,7 +8,7 @@
     "rootPlaceholders": [
       "jss-main"
     ],
-    "sitecoreDistPath": "",
+    "sitecoreDistPath": "/dist/jssreactstarter",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "language": "en"
   },

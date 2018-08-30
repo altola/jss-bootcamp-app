@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image } from '@sitecore-jss/sitecore-jss-react';
+import { Image, Text } from '@sitecore-jss/sitecore-jss-react';
 import {
   Carousel,
   CarouselItem,
@@ -49,9 +49,24 @@ class SlideShow extends Component {
   }
 
   render() {
+    debugger;
     const { activeIndex } = this.state;
-
     const items = this.items();
+    const isPageEditing = this.props.context.pageEditing;
+
+    if(isPageEditing){
+      const slides = items.map((item, index) => {
+        return (<div className="row">
+            <div className="col">
+              <Text field={item.fields.caption} />
+              <Image field={item.fields.image} width={700} />
+            </div>
+          </div>
+          )
+      });
+
+      return slides;
+    }
 
     const slides = items.map((item, index) => {
       const {image, caption} = item.fields;
